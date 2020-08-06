@@ -1,0 +1,96 @@
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+    position: relative;
+}
+
+body {    
+    font-family: Atlasgrotesk,sans-serif;
+    min-height: 100%
+}
+/* My Variables */
+
+.wg-100{
+    font-weight: 100;
+}
+
+.wg-400{
+    font-weight: 400;
+}
+
+/* Navbar */
+#mainNavbar .nav-link {
+    color: white;
+    font-size: 1.1vw;
+}
+
+
+#art-grid, #alert-container{
+    width: 85%;
+    margin: 0 auto;
+}
+
+#art-gallery .card:hover {
+    border: solid 2px gray;
+}
+
+
+#login-form, #register-form {
+    width: 30%; 
+    margin: 8% auto 0 auto;
+}
+
+#welcome-guest{
+    cursor: default;
+}
+/* Footer Styling */
+
+#my-footer {
+    background: #343a40;
+    color: white;
+    width: 100%;
+    color: white;
+    text-align: center;
+    position: static;
+    left: 0;
+    bottom: 0;
+    padding: 1%;
+}
+
+
+/* Comment Section */
+
+#artwork-comments{
+    list-style-type: none;
+    font-size: 0.8rem;
+}
+#artwork-comments li{
+    padding: 0.8rem;
+}
+
+
+#artwork-comments li:nth-child(odd) {
+    background:	#ebebeb}
+#artwork-comments li:nth-child(even) {
+    background: white;
+}
+
+#profile-link{
+    cursor: pointer;
+    font-size:  1.1vw;
+    color: white;
+    text-decoration: none;
+}
+
+#profile-link:hover, .navbar-dark .navbar-brand:hover, #mainNavbar .nav-link:not(span):hover{
+    text-decoration: underline;
+    color: #007bff;
+}
+
+#profile-identity img{
+    width:20%;
+}

@@ -1,0 +1,26 @@
+<%- include('../partials/header.ejs'); -%>
+
+<div id="art-grid">
+    <header class="jumbotron">
+        <div class="container text-center">
+            <h1>Welcome to the Art Gallery</h1>
+            <p>Look at all this amazing art located right here in Boston</p>
+            <a href="/paintings/new" class="btn btn-primary">Add a New Painting</a>
+        </div>
+    </header>
+
+    
+    <div id="art-gallery" class="row">
+       <% paintings.forEach(function(painting){ %>
+           <div class="card col-lg-4 p-2">
+               <img class="card-img-top" src="<%= painting.image %>" alt="Card image cap">
+               <div class="card-body p-0 py-3">
+                 <h5 class="card-title"><%= painting.title %></h5>
+                 <p class="card-text"><%= painting.description.substring(0,60)%>...</p>
+                 <a href="/paintings/<%= painting._id %>" class="btn btn-secondary">More Info</a>
+               </div>
+             </div>
+       <% }); %>
+   </div>
+</div>
+<%- include('../partials/footer.ejs'); -%>

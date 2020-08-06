@@ -1,0 +1,61 @@
+<%- include('../partials/header.ejs'); -%>
+      <!-- Title -->
+      <a href="/paintings" class="btn btn-primary ml-3">Go Back</a>
+
+      <div class="container">
+
+        <h2 class="card-title .wg-100 mb-2 display-4"><%= painting.title %></h2>
+        <!-- Card -->
+      <div id = "promoting-card" class="card">
+        <!-- Card content -->
+        <div class="card-body d-flex flex-row">
+          <!-- Avatar -->
+          <img src="/images/avatar.jpg" class="rounded-circle mr-3" height="50px" width="50px" alt="avatar">
+          <!-- Content -->
+          <div>
+            <!-- Subtitle -->
+            <p class="card-text mt-3 lead"><%= painting.artist.username %></p>
+          </div>
+        </div>
+      
+        <!-- Card image -->
+        <div class="view overlay">
+          <img class="card-img-top rounded-0" src="<%= painting.image %>" alt="Card image cap">
+          <a href="#!">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+      
+        <!-- Card content -->
+        <div class="card-body">
+            <!-- Text -->
+            <p class="card-text"><%= painting.description %> - <span class = "font-italic font-weight-bold"> $<%= painting.price %> </span></p>           
+            <!-- <p class="card-text float-right">$<%= painting.price %></p> -->
+            <!-- Button -->
+            <div id="painting-actions" class = "mt-5">
+              <a class = "btn btn-outline-secondary float-left" href="/paintings/<%= painting._id %>/comments/new">Add A Comment</a>
+              <i class="fas fa-heart text-muted float-right py-2 ml-4" title="I like it"></i>
+              <i class="fas fa-share-alt text-muted float-right py-2" title="Share this post"></i>
+            </div>   
+        </div>
+      </div>
+
+
+      <!-- Comments  -->
+      <ul id="artwork-comments" class = "p-0 mt-3">
+       
+        <% painting.comments.forEach(function(comment){ %>
+          <li class = "comment rounded">
+           
+            <p class="font-weight-bold"><i class="far fa-user-circle"></i><%= capitlizeFirstLetter(comment.artist.username) %></p>
+            <h6><%= comment.headline %></h6>
+            <p> <%= comment.text %></p>            
+        </li>
+        <% }) %>
+      </ul>
+
+      </div>
+
+      
+<!-- Card -->
+<%- include('../partials/footer.ejs'); -%>

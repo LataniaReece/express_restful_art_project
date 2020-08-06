@@ -1,0 +1,25 @@
+<%- include('../partials/header.ejs'); -%>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Add New Comment to <%= painting.name %></h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/paintings/<%= painting._id %>/comments" method="POST">
+                <div class="form-group">
+                    <label for="headline">Add a Headline</label>
+                    <input id="headline" class="form-control" type="headline" name="comment[headline]" placeholder="What's the most important?">
+                </div>
+                <div class="form-group">
+                    <label for="comment-input">Write your Comment</label>
+                    <textarea id="comment-input" class="form-control" name="comment[text]" rows="4" cols="50" placeholder="What did you like or dislike about this painting?"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/paintings">Go Back</a>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs'); -%>
