@@ -14,7 +14,6 @@ var ObjectId = require('mongoose').Types.ObjectId;
    
 router.get("/:id",middleware.isLoggedIn, function(req, res){
     let userPaintings;
-    let userComments;
 
     Painting.find({"artist.id": req.params.id}, function(err, paintings){
         if(err){

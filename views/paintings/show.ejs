@@ -1,6 +1,5 @@
 <%- include('../partials/header.ejs'); -%>
       <!-- Title -->
-      <a href="/paintings" class="btn btn-primary ml-3">Go Back</a>
 
       <div class="container">
 
@@ -14,7 +13,17 @@
           <!-- Content -->
           <div>
             <!-- Subtitle -->
-            <p class="card-text mt-3 lead"><%= painting.artist.username %></p>
+            <p class="card-text mt-3 lead"><%= capitlizeFirstLetter(painting.artist.username) %></p>
+            <div class="action-btns d-flex justify-content-between">
+              <% if(currentUser && painting.artist.id.equals(currentUser._id)){ %>
+                <a class="btn btn-xs btn-warning" 
+                href="/paintings/<%=painting._id %>/edit">Edit</a>
+                <form id="delete-form" action="/paintings/<%=painting._id %>?_method=DELETE" method="POST">
+                  <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+              </form>
+            <% } %>
+            </div>       
+
           </div>
         </div>
       
@@ -42,14 +51,24 @@
 
 
       <!-- Comments  -->
-      <ul id="artwork-comments" class = "p-0 mt-3">
+      <ul id="artwork-comments" class = "comment-container p-0 mt-3">
        
         <% painting.comments.forEach(function(comment){ %>
           <li class = "comment rounded">
            
             <p class="font-weight-bold"><i class="far fa-user-circle"></i><%= capitlizeFirstLetter(comment.artist.username) %></p>
             <h6><%= comment.headline %></h6>
-            <p> <%= comment.text %></p>            
+            <p> <%= comment.text %></p>   
+            
+            <div class="action-btns d-flex justify-content-between">
+              <% if(currentUser && comment.artist.id.equals(currentUser._id)){ %>
+                <a class="btn btn-xs btn-warning" 
+                   href="/paintings/<%=painting._id %>/comments/<%=comment._id %>/edit">Edit</a>
+                <form id="delete-form" action="/paintings/<%=painting._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
+                    <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+                </form>
+            <% } %>
+            </div>         
         </li>
         <% }) %>
       </ul>

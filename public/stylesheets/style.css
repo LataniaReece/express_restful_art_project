@@ -34,7 +34,7 @@ body {
     margin: 0 auto;
 }
 
-#art-gallery .card:hover {
+.art-gallery .card:hover {
     border: solid 2px gray;
 }
 
@@ -64,18 +64,17 @@ body {
 
 /* Comment Section */
 
-#artwork-comments{
+.comment-container{
     list-style-type: none;
     font-size: 0.8rem;
 }
-#artwork-comments li{
+.comment-container li{
     padding: 0.8rem;
 }
 
-
-#artwork-comments li:nth-child(odd) {
+.comment-container li:nth-child(odd) {
     background:	#ebebeb}
-#artwork-comments li:nth-child(even) {
+.comment-container li:nth-child(even) {
     background: white;
 }
 
@@ -93,4 +92,10 @@ body {
 
 #profile-identity img{
     width:20%;
+}
+
+.art-gallery .card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
 }
